@@ -31,9 +31,10 @@ export default class FilmGalleryComponent extends Component {
                 let arrMovies=response.data.results[0].known_for;
                 let arrFilms=[];
                 arrMovies.forEach(item=>arrFilms.push(new Film(item.title,0,"",item.poster_path,"",item.id)))
-                this.setState({
-                    films:arrFilms.map(item => new Film(item))   
+                this.setState({ 
+                    films:arrFilms.map(item => item)  
                 })
+                // arrMovies.forEach(item=>this.getFilmParameters(item.title));
             })
 
             .catch(function (error) {
@@ -46,6 +47,26 @@ export default class FilmGalleryComponent extends Component {
         }
 
      }
+
+    //  getFilmParameters(filmName)
+    //  {
+
+    //     const searchURL = "https://api.themoviedb.org/3/search/movie?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + filmName;
+    //         Axios.get(searchURL).then(response => {
+
+    //             let arr=response.data;
+    //             console.log(arr);
+    //         })
+
+    //         .catch(function (error) {
+    //                 // handle error
+    //                 console.log(error);
+    //         })
+    //         .finally(function () {
+    //                 // always executed
+    //         });
+
+    //  }
 
      
     
