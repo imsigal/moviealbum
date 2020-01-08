@@ -29,7 +29,7 @@ export default class FilmComponent extends Component {
 
                          <img src={film.imgSrcPoster} alt={film.name} />
                         <Container>
-                            <Jumbotron ><h5>{film.name} Details:</h5></Jumbotron>
+                            <Jumbotron ><h5>{film.name} </h5></Jumbotron>
                             <h5>The film was directed by:  {film.director} </h5> 
                             <h5>Actors: {film.starActors} </h5> 
                         </Container> 
