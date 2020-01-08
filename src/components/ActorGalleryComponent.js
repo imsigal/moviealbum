@@ -6,7 +6,7 @@ import ActorComponent from './ActorComponent'
 import ActorsData from "../data/actors.json"
 import FilterBoxComponent from './filterBoxComponent'
 
-import {Row, Col,Container,InputGroup,FormControl } from 'react-bootstrap';
+import {Row, Col,Container,InputGroup,FormControl,Jumbotron } from 'react-bootstrap';
 import './ActorGalleryComponent.css';
 //Component ActorGalleryComponent
 // the compoment shows a gallery of actors.
@@ -103,6 +103,7 @@ class ActorGalleryComponent extends Component {
         return (
                    
             <Container>
+                <Jumbotron>Actors Album</Jumbotron>
                 <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>
                 <InputGroup className="mb-3" size="lg">
                     <FormControl
