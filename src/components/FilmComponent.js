@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card,Accordion,Button} from 'react-bootstrap';
+import { Card,Accordion,Button, Jumbotron,Container} from 'react-bootstrap';
 import './FilmComponent.css';
 
 //FilmComponent
@@ -28,11 +28,11 @@ export default class FilmComponent extends Component {
                     <Card.Body className="container-class">
 
                          <img src={film.imgSrcPoster} alt={film.name} />
-                        <div>
-                            <p>Film Details:</p>
-                            <p>The film was directed by  {film.director}</p>
-                            <p>actors: {film.starActors}</p>
-                        </div> 
+                        <Container>
+                            <Jumbotron ><h5>{film.name} Details:</h5></Jumbotron>
+                            <p><h5>The film was directed by:</h5> {film.director} </p>
+                            <p><h5>Actors:</h5> {film.starActors} </p>
+                        </Container> 
 
                     </Card.Body>
                     </Accordion.Collapse>
