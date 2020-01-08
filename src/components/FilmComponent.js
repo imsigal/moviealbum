@@ -13,12 +13,12 @@ export default class FilmComponent extends Component {
         super(props);      
     }
 
-   
+    
     render()
     {
       const { film, index} = this.props;
         return (
-            <Card>
+            <Card >
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey={index}>
                     {film.name}
@@ -30,8 +30,8 @@ export default class FilmComponent extends Component {
                          <img src={film.imgSrcPoster} alt={film.name} />
                         <Container>
                             <Jumbotron ><h5>{film.name} Details:</h5></Jumbotron>
-                            <p><h5>The film was directed by:</h5> {film.director} </p>
-                            <p><h5>Actors:</h5> {film.starActors} </p>
+                            <h5>The film was directed by:  {film.director} </h5> 
+                            <h5>Actors: {film.starActors} </h5> 
                         </Container> 
 
                     </Card.Body>

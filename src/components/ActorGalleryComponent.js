@@ -17,7 +17,7 @@ import './ActorGalleryComponent.css';
 // to clean the search press search button to empty search box text
 // search is not sensitive to case
 // properties:
-
+// -onSelectedActor: get the actor name from the child actor item
 // state:
 //- actors: the list of actors that appear on screen. this is initialize from the actors data
 // - filterCreteria : the creteria of the filter, that will appear in the text box
@@ -31,6 +31,7 @@ class ActorGalleryComponent extends Component {
             filterCreteria:""
         }
         this.filterActors=this.filterActors.bind(this);
+        this.selectActor=this.selectActor.bind(this);
     }
     // filterActors function does the filter algorithm
     filterActors(filterText) 
@@ -78,13 +79,12 @@ class ActorGalleryComponent extends Component {
                 filterCreteria:uniquefilter.join(" ")
              })
         }
-
-
-       
-    
-
     }
-
+   
+    selectActor(actorName)
+    {  
+        this.props.onSelectActor(actorName);
+    }
     render()
     {
         const {actors,filterCreteria}=this.state;
@@ -95,14 +95,14 @@ class ActorGalleryComponent extends Component {
 
             var actorsItems=actors.map((anActor,index) => 
             <Col className="gallery-item" md={4} key={index}>
-                <ActorComponent actor={anActor} ></ActorComponent>
+                <ActorComponent actor={anActor} onSelectedActor={this.selectActor} ></ActorComponent>
             </Col>)
                 
         var filterCreteriaText=(filterCreteria==="")?"Filter creteria: none":"Filter creteria: "+ filterCreteria;
 
         return (
                    
-            <Container>
+            <Container  >
                 <Jumbotron>Actors Album</Jumbotron>
                 <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>
                 <InputGroup className="mb-3" size="lg">

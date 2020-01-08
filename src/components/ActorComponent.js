@@ -14,18 +14,26 @@ export default class ActorComponent extends Component {
         super(props);      
     }
 
+    onSelectActor=(event)=>
+    {
+           let actorName=event.currentTarget.attributes[0].value;
+           this.props.onSelectedActor(actorName);
+           
+    }
+   
    
     render()
     {
       const { actor } = this.props;
+      let actorName= actor.firstName +" " +actor.lastName;
         return (
-            <Card className="card-class" border="info" bg="info" text="white" >     
+            <Card className="card-class" border="info" bg="info" text="white" value={actorName} onClick={this.onSelectActor} >     
               <Card.Img variant="top" src={actor.imgSrc} >
               </Card.Img>
               <Card.Body>
                 <Card.Title> 
                   <a className="App-link" href={actor.imDBLink} target="_blank" rel="noopener noreferrer">
-                    {actor.firstName} {actor.lastName}
+                    {actorName}
                   </a>
                 </Card.Title>
                 <Card.Text>
