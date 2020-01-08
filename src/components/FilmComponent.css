@@ -1,0 +1,7 @@
+.container-class{
+ display:flex;
+}
+
+.container-class>img{
+    width:50%;
+} 

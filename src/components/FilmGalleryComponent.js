@@ -2,16 +2,15 @@ import React, { Component } from 'react';
  
 import Film from '../model/Film'
 import FilmComponent from './FilmComponent'
-// import ActorsData from "../data/actors.json"
 
-import {Accordion ,Container} from 'react-bootstrap';
+
+import {Accordion ,Container, Jumbotron} from 'react-bootstrap';
 
 export default class FilmGalleryComponent extends Component {
 
     constructor(props) {
         super(props);
-  // sigal - change the actors data
- // ActorsData.map(item => new Film(item))  
+  
         this.state = {
             films:[]
         }
@@ -19,14 +18,8 @@ export default class FilmGalleryComponent extends Component {
     }
 
     componentDidMount() {
-    //     const p = axios.get("cars.json");
-        
-    //     p.then((response) => {
-    //       this.setState({
-    //         cars: response.data.map(plainCar => new CarModel(plainCar))
-    //       })
-    //     })
-        var someFilm=[new Film("xxx",90,"jhon Doe"),new Film("stam",120,"test me")]; 
+   
+        var someFilm=[new Film("xxx",90,"jhon Doe","https://m.media-amazon.com/images/M/MV5BMDljNTQ5ODItZmQwMy00M2ExLTljOTQtZTVjNGE2NTg0NGIxXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SY1000_CR0,0,675,1000_AL_.jpg","all the actors here"),new Film("stam",120,"test me","https://m.media-amazon.com/images/M/MV5BMDljNTQ5ODItZmQwMy00M2ExLTljOTQtZTVjNGE2NTg0NGIxXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_SY1000_CR0,0,675,1000_AL_.jpg","all the actors here")]; 
         this.setState({
             films: someFilm.map(item => new Film(item))
           })
@@ -37,18 +30,18 @@ export default class FilmGalleryComponent extends Component {
     {
         const {films}=this.state;
 
-        // if (films === null) {
-        //     return false;
-        // }
+        if (films === null) {
+            return false;
+        }
 
-        var filmsItems=films.map((aFilm,index) => <FilmComponent film={aFilm} ></FilmComponent>);
+        var filmsItems=films.map((aFilm,index) => <FilmComponent film={aFilm} index={index} ></FilmComponent>);
                 
         return (
                    
             <Container>
+                <Jumbotron>Film List</Jumbotron>
                 <Accordion>
-                {filmsItems}    
-                {/* <FilmComponent film={films} ></FilmComponent> */}
+                    {filmsItems}    
                 </Accordion>
             </Container>
             
