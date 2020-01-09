@@ -1,4 +1,4 @@
-export default class Film{
+export default class Movie{
 
     constructor(ObjectOrName,lengthMinutes,director,imgSrcPoster,starActors,id)
     {

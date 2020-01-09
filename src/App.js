@@ -4,7 +4,7 @@ import { Switch, Route,HashRouter  } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/HomePage';
 import ActorGalleryPage from './pages/ActorGalleryPage';
-import FilmGalleryPage from './pages/FilmGalleryPage';
+import MovieGalleryPage from './pages/MovieGalleryPage';
 
 
 
@@ -37,7 +37,7 @@ import FilmGalleryPage from './pages/FilmGalleryPage';
                 <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
               </Route>
               <Route exact path="/movies">
-                <FilmGalleryPage selectedActor={this.state.selectedActor}></FilmGalleryPage>
+                <MovieGalleryPage selectedActor={this.state.selectedActor}></MovieGalleryPage>
               </Route>
           </Switch>
         </HashRouter>

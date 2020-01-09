@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Actor from '../model/Actor'
 import ActorComponent from '../components/ActorComponent'
 import ActorsData from "../data/actors.json"
-import FilterBoxComponent from '../components/filterBoxComponent'
+import FilterBoxComponent from '../components/FilterBoxComponent'
 
 import {Row, Col,Container,InputGroup,FormControl,Jumbotron } from 'react-bootstrap';
 import './ActorGalleryPage.css';
@@ -21,7 +21,7 @@ import './ActorGalleryPage.css';
 // state:
 //- actors: the list of actors that appear on screen. this is initialize from the actors data
 // - filterCreteria : the creteria of the filter, that will appear in the text box
-class ActorGalleryComponent extends Component {
+export default class ActorGalleryComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -124,4 +124,3 @@ class ActorGalleryComponent extends Component {
     }
 }
 
-export default ActorGalleryComponent;

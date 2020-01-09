@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Card,Accordion,Button, Jumbotron,Container} from 'react-bootstrap';
-import './FilmComponent.css';
+import './MovieComponent.css';
 
-//FilmComponent
-// this component is used to show a film . its photo and details about it
+//MovieComponent
+// this component is used to show a movie . its photo and details about it
 //properties 
-//-film - accept Film object
+//-movie - accept Movie object
 
-export default class FilmComponent extends Component {
+export default class MovieComponent extends Component {
 
     constructor(props) {
         super(props);      
@@ -16,22 +16,22 @@ export default class FilmComponent extends Component {
     
     render()
     {
-      const { film, index} = this.props;
+      const { movie, index} = this.props;
         return (
             <Card >
                 <Card.Header>
                     <Accordion.Toggle as={Button} variant="link" eventKey={index}>
-                    {film.name}
+                    {movie.name}
                     </Accordion.Toggle>
                 </Card.Header>
                     <Accordion.Collapse eventKey={index}>
-                    <Card.Body className="film-component-container-class">
+                    <Card.Body className="movie-component-container-class">
 
-                         <img src={film.imgSrcPoster} alt={film.name} />
+                         <img src={movie.imgSrcPoster} alt={movie.name} />
                         <Container>
-                            <Jumbotron ><h5>{film.name} </h5></Jumbotron>
-                            <h5>The film was directed by:  {film.director} </h5> 
-                            <h5>Actors: {film.starActors} </h5> 
+                            <Jumbotron ><h5>{movie.name} </h5></Jumbotron>
+                            <h5>The movie was directed by:  {movie.director} </h5> 
+                            <h5>Actors: {movie.starActors} </h5> 
                         </Container> 
 
                     </Card.Body>

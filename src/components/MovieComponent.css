@@ -1,0 +1,7 @@
+.movie-component-container-class{
+ display:flex;
+}
+
+.movie-component-container-class>img{
+    width:30%;
+} 

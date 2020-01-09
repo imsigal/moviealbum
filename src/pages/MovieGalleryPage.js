@@ -1,40 +1,40 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
-import Film from '../model/Film'
-import FilmComponent from '../components/FilmComponent'
+import Movie from '../model/Movie'
+import MovieComponent from '../components/MovieComponent'
 
 
 import {Accordion ,Container, Jumbotron} from 'react-bootstrap';
 
 // prperties :
-// -selectedActor- the  actor, of whom the films will be seen
+// -selectedActor- the  actor, of whom the Movies will be seen
 // states:
-// films- the list of films that will be seen on screen
-export default class FilmGalleryComponent extends Component {
+// movies- the list of Movie that will be seen on screen
+export default class MovieGalleryPage extends Component {
 
     constructor(props) {
         super(props);
   
         this.state = {
-            films:[]
+            movies:[]
         }
-       this.FindFilms=this.FindFilms.bind(this);
+       this.findMovies=this.findMovies.bind(this);
     }
 
-    FindFilms() {
+    findMovies() {
    
         if (this.props.selectedActor)
         {
          const searchURL = "https://api.themoviedb.org/3/search/person?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + this.props.selectedActor;
             Axios.get(searchURL).then(response => {
 
-                let arrMovies=response.data.results[0].known_for;
-                let arrFilms=[];
-                arrMovies.forEach(item=>arrFilms.push(new Film(item.title,0,"",item.poster_path,"",item.id)))
+                let arrDBMovies=response.data.results[0].known_for;
+                let arrMovies=[];
+                arrDBMovies.forEach(item=>arrMovies.push(new Movie(item.title,0,"",item.poster_path,"",item.id)))
                 this.setState({ 
-                    films:arrFilms.map(item => item)  
+                    movies:arrMovies.map(item => item)  
                 })
-                // arrMovies.forEach(item=>this.getFilmParameters(item.title));
+                // arrMovies.forEach(item=>this.getMovieParameters(item.title));
             })
 
             .catch(function (error) {
@@ -48,10 +48,10 @@ export default class FilmGalleryComponent extends Component {
 
      }
 
-    //  getFilmParameters(filmName)
+    //  getMovieParameters(movieName)
     //  {
 
-    //     const searchURL = "https://api.themoviedb.org/3/search/movie?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + filmName;
+    //     const searchURL = "https://api.themoviedb.org/3/search/movie?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + movieName;
     //         Axios.get(searchURL).then(response => {
 
     //             let arr=response.data;
@@ -73,23 +73,23 @@ export default class FilmGalleryComponent extends Component {
 
     render()
     {
-        const {films}=this.state;
+        const {movies}=this.state;
         const {selectedActor}= this.props
 
-        this.FindFilms();
+        this.findMovies();
 
-        if (films === null || films.length===0) {
+        if (movies === null || movies.length===0) {
             return false;
         }
 
-        var filmsItems=films.map((aFilm,index) => <FilmComponent film={aFilm} index={index}  ></FilmComponent>);
+        var moviesItems=movies.map((aMovie,index) => <MovieComponent movie={aMovie} index={index}  ></MovieComponent>);
         var headerText=(selectedActor)? selectedActor+"'s movies": "Cannot show movies,No Actor was selected"       
         return (
               
             <Container>
                 <Jumbotron>{headerText}</Jumbotron>
                 <Accordion>
-                    {filmsItems}    
+                    {moviesItems}    
                 </Accordion>
             </Container>
             

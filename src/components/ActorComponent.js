@@ -21,10 +21,11 @@ export default class ActorComponent extends Component {
     onSelectActor=(event)=>
     {
            let actorName=event.currentTarget.attributes[0].value;
-           this.props.onSelectedActor(actorName);
            if (actorName) {
-             this.setState({IsRedirectToMoviePage:true});
-           }
+            this.setState({IsRedirectToMoviePage:true});
+          }
+           this.props.onSelectedActor(actorName);
+           
            
     }
    
