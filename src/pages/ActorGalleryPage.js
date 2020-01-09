@@ -102,8 +102,7 @@ export default class ActorGalleryComponent extends Component {
 
         return (
                    
-            <Container class="actor-gallery-page" >
-                <Jumbotron>Actors Album</Jumbotron>
+            <div class="actor-gallery-page" >
                 <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>
                 <InputGroup className="mb-3" size="lg">
                     <FormControl
@@ -118,7 +117,7 @@ export default class ActorGalleryComponent extends Component {
                 <Row >             
                         {actorsItems}           
                 </Row>
-            </Container>
+            </div>
             
         )
     }
