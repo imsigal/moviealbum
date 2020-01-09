@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
-import './ActorGalleryComponent.css';
+import './ActorComponent.css';
 
 //ActorComponent
 // this component is used to show an actor . its photo and details about him
@@ -27,7 +27,7 @@ export default class ActorComponent extends Component {
       const { actor } = this.props;
       let actorName= actor.firstName +" " +actor.lastName;
         return (
-            <Card className="card-class" border="info" bg="info" text="white" value={actorName} onClick={this.onSelectActor} >     
+            <Card className="actor-component-card" border="info" bg="info" text="white" value={actorName} onClick={this.onSelectActor} >     
               <Card.Img variant="top" src={actor.imgSrc} >
               </Card.Img>
               <Card.Body>

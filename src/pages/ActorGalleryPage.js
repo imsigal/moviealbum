@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
  
 import Actor from '../model/Actor'
-import ActorComponent from './ActorComponent'
+import ActorComponent from '../components/ActorComponent'
 import ActorsData from "../data/actors.json"
-import FilterBoxComponent from './filterBoxComponent'
+import FilterBoxComponent from '../components/filterBoxComponent'
 
 import {Row, Col,Container,InputGroup,FormControl,Jumbotron } from 'react-bootstrap';
-import './ActorGalleryComponent.css';
+import './ActorGalleryPage.css';
 //Component ActorGalleryComponent
 // the compoment shows a gallery of actors.
 // the actors can be searched according tp the text appear in the search box.
@@ -94,7 +94,7 @@ class ActorGalleryComponent extends Component {
         }
 
             var actorsItems=actors.map((anActor,index) => 
-            <Col className="gallery-item" md={4} key={index}>
+            <Col className="gallery-item" md={3} key={index}>
                 <ActorComponent actor={anActor} onSelectedActor={this.selectActor} ></ActorComponent>
             </Col>)
                 
@@ -102,7 +102,7 @@ class ActorGalleryComponent extends Component {
 
         return (
                    
-            <Container  >
+            <Container class="actor-gallery-page" >
                 <Jumbotron>Actors Album</Jumbotron>
                 <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>
                 <InputGroup className="mb-3" size="lg">

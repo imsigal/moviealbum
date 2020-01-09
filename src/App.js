@@ -1,7 +1,7 @@
 // import React from 'react';
 import React, { Component } from 'react';
 import './App.css';
-import ActorGalleryComponent from './components/ActorGalleryComponent';
+import ActorGalleryPage from './pages/ActorGalleryPage';
 import FilmGalleryComponent from './components/FilmGalleryComponent';
 
 
@@ -27,7 +27,7 @@ import FilmGalleryComponent from './components/FilmGalleryComponent';
     {
       return (
         <div>
-        <ActorGalleryComponent onSelectActor={this.selectActor}></ActorGalleryComponent>
+        <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
         <FilmGalleryComponent selectedActor={this.state.selectedActor}></FilmGalleryComponent>
         </div>
       

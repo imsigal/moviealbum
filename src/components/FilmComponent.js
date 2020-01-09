@@ -25,7 +25,7 @@ export default class FilmComponent extends Component {
                     </Accordion.Toggle>
                 </Card.Header>
                     <Accordion.Collapse eventKey={index}>
-                    <Card.Body className="container-class">
+                    <Card.Body className="film-component-container-class">
 
                          <img src={film.imgSrcPoster} alt={film.name} />
                         <Container>

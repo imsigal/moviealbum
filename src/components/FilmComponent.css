@@ -1,7 +1,7 @@
-.container-class{
+.film-component-container-class{
  display:flex;
 }
 
-.container-class>img{
+.film-component-container-class>img{
     width:30%;
 } 
