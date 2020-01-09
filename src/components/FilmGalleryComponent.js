@@ -74,6 +74,7 @@ export default class FilmGalleryComponent extends Component {
     render()
     {
         const {films}=this.state;
+        const {selectedActor}= this.props
 
         this.FindFilms();
 
@@ -84,9 +85,9 @@ export default class FilmGalleryComponent extends Component {
         var filmsItems=films.map((aFilm,index) => <FilmComponent film={aFilm} index={index}  ></FilmComponent>);
                 
         return (
-                   
+              
             <Container>
-                <Jumbotron>Film List</Jumbotron>
+                <Jumbotron>{selectedActor}'s movies</Jumbotron>
                 <Accordion>
                     {filmsItems}    
                 </Accordion>

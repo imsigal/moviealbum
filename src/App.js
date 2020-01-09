@@ -1,6 +1,8 @@
 // import React from 'react';
 import React, { Component } from 'react';
+import { Switch, Route,HashRouter  } from 'react-router-dom'
 import './App.css';
+import HomePage from './pages/HomePage';
 import ActorGalleryPage from './pages/ActorGalleryPage';
 import FilmGalleryComponent from './components/FilmGalleryComponent';
 
@@ -26,10 +28,19 @@ import FilmGalleryComponent from './components/FilmGalleryComponent';
     render()
     {
       return (
-        <div>
-        <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
-        <FilmGalleryComponent selectedActor={this.state.selectedActor}></FilmGalleryComponent>
-        </div>
+        <HashRouter>
+          <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/actors">
+                <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
+              </Route>
+              <Route exact path="/movies">
+                <FilmGalleryComponent selectedActor={this.state.selectedActor}></FilmGalleryComponent>
+              </Route>
+          </Switch>
+        </HashRouter>
       
       );
     }
