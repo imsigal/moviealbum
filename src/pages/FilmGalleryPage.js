@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
 import Film from '../model/Film'
-import FilmComponent from './FilmComponent'
+import FilmComponent from '../components/FilmComponent'
 
 
 import {Accordion ,Container, Jumbotron} from 'react-bootstrap';
@@ -83,11 +83,11 @@ export default class FilmGalleryComponent extends Component {
         }
 
         var filmsItems=films.map((aFilm,index) => <FilmComponent film={aFilm} index={index}  ></FilmComponent>);
-                
+        var headerText=(selectedActor)? selectedActor+"'s movies": "Cannot show movies,No Actor was selected"       
         return (
               
             <Container>
-                <Jumbotron>{selectedActor}'s movies</Jumbotron>
+                <Jumbotron>{headerText}</Jumbotron>
                 <Accordion>
                     {filmsItems}    
                 </Accordion>

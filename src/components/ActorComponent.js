@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import './ActorComponent.css';
+import { Redirect } from 'react-router-dom';
 
 //ActorComponent
 // this component is used to show an actor . its photo and details about him
@@ -11,13 +12,19 @@ import './ActorComponent.css';
 export default class ActorComponent extends Component {
 
     constructor(props) {
-        super(props);      
+        super(props); 
+        this.state = {
+          IsRedirectToMoviePage:false
+        }   
     }
 
     onSelectActor=(event)=>
     {
            let actorName=event.currentTarget.attributes[0].value;
            this.props.onSelectedActor(actorName);
+           if (actorName) {
+             this.setState({IsRedirectToMoviePage:true});
+           }
            
     }
    
@@ -25,7 +32,13 @@ export default class ActorComponent extends Component {
     render()
     {
       const { actor } = this.props;
+      const { IsRedirectToMoviePage } = this.state;
       let actorName= actor.firstName +" " +actor.lastName;
+      if (IsRedirectToMoviePage)
+      {
+        
+        return (<Redirect to="/movies"/>);
+      }
         return (
             <Card className="actor-component-card" border="info" bg="info" text="white" value={actorName} onClick={this.onSelectActor} >     
               <Card.Img variant="top" src={actor.imgSrc} >
