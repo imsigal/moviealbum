@@ -1,11 +1,11 @@
 // import React from 'react';
 import React, { Component } from 'react';
-import { Switch, Route,HashRouter  } from 'react-router-dom'
+import { Switch, Route,HashRouter, Redirect  } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/HomePage';
 import ActorGalleryPage from './pages/ActorGalleryPage';
 import MovieGalleryPage from './pages/MovieGalleryPage';
-
+import NavBarComponent from './components/NavBarComponent';
 
 
   class App extends Component
@@ -28,19 +28,22 @@ import MovieGalleryPage from './pages/MovieGalleryPage';
     render()
     {
       return (
-        <HashRouter>
-          <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/actors">
-                <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
-              </Route>
-              <Route exact path="/movies">
-                <MovieGalleryPage selectedActor={this.state.selectedActor}></MovieGalleryPage>
-              </Route>
-          </Switch>
-        </HashRouter>
+        <div>
+          <NavBarComponent></NavBarComponent>
+          <HashRouter>
+            <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route exact path="/actors">
+                  <ActorGalleryPage onSelectActor={this.selectActor}></ActorGalleryPage>
+                </Route>
+                <Route exact path="/movies">
+                  <MovieGalleryPage selectedActor={this.state.selectedActor}></MovieGalleryPage>
+                </Route>
+            </Switch>
+          </HashRouter>
+        </div>
       
       );
     }
