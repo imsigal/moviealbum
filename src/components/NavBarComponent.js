@@ -15,7 +15,7 @@ export default class NavBarComponent extends Component {
       
         return (
             <Navbar bg="info" variant="dark" expand="lg">
-                <Navbar.Brand href="#home">Actors Data Album</Navbar.Brand>
+                <Navbar.Brand href="#/">Actors Data Album</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
