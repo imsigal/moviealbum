@@ -5,12 +5,12 @@ import { FormControl, InputGroup,Button } from 'react-bootstrap';
 
 
 //FilterBoxComponent
-// this item sends to the parent a string when ok button is pressed
+// this item sends to the parent a string when ok button is pressed or when the enter key is pressed
 // props:
 //- onFilterChange- a function name that should be implemented in the parent and accept the string (filterText)
 // the function is operated on the click of the search button
 // State:
-// -filterText-a string that containn the text in the textBox
+// -filterText-a string that contains the text in the textBox
  class FilterBoxComponent extends Component {
     constructor(props) {
         super(props);
@@ -27,6 +27,12 @@ import { FormControl, InputGroup,Button } from 'react-bootstrap';
         this.setState({
             filterText: newFilterText
         });
+    }
+
+    handleKeyDownEvent=(event)=>{
+        if (event.key === 'Enter') {
+            this.handleFilter(event);
+        }
     }
 
     handleFilter=(event)=>{    
@@ -48,6 +54,7 @@ import { FormControl, InputGroup,Button } from 'react-bootstrap';
                         aria-describedby="basic-addon2"
                         value={filterText} 
                          onChange={this.handleInputChange}
+                         onKeyDown={this.handleKeyDownEvent}
                     />
                     <InputGroup.Append>
                         <Button variant="outline-secondary"  onClick={this.handleFilter}>Search</Button>
