@@ -9,10 +9,6 @@ import './MovieComponent.css';
 
 export default class MovieComponent extends Component {
 
-    constructor(props) {
-        super(props);      
-    }
-
     
     render()
     {

@@ -6,7 +6,7 @@ import ActorComponent from '../components/ActorComponent'
 import ActorsData from "../data/actors.json"
 import FilterBoxComponent from '../components/FilterBoxComponent'
 
-import {Row, Col,Container,InputGroup,FormControl,Jumbotron,Form } from 'react-bootstrap';
+import {Row, Col,Form } from 'react-bootstrap';
 import './ActorGalleryPage.css';
 //Component ActorGalleryComponent
 // the compoment shows a gallery of actors.

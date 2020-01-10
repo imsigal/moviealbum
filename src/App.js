@@ -1,6 +1,6 @@
 // import React from 'react';
 import React, { Component } from 'react';
-import { Switch, Route,HashRouter, Redirect  } from 'react-router-dom'
+import { Switch, Route,HashRouter  } from 'react-router-dom'
 import './App.css';
 import HomePage from './pages/HomePage';
 import ActorGalleryPage from './pages/ActorGalleryPage';
