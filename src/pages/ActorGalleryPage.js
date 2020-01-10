@@ -48,39 +48,33 @@ export default class ActorGalleryComponent extends Component {
         } 
         else  // filter according to the text in the search box
         {
-            var filteredActorsList=[];
+                // divide the original string to words and test the exsistance of each word in the name
             var searchArray=filterText.toLowerCase().split(" ");
-            for (var i=0;i<actors.length;++i)
+            // copy the original array to other array
+            let filteredList=actors.slice();
+            // filter into the other array
+            for (var i=0;i<searchArray.length;++i)
             {
-                for (var j=0;j<searchArray.length;++j)
-                {
-                    if (searchArray[j].length>0)
-                    {
-                        if (actors[i].firstName.toLowerCase().indexOf(searchArray[j])>=0)
-                        {
-                            filteredActorsList.push(actors[i])
-                        }
-                        else if (actors[i].lastName.toLowerCase().indexOf(searchArray[j])>=0)
-                        {
-                            filteredActorsList.push(actors[i])
-                        }
-                    }
-                }
+                filteredList = filteredList.filter((anActor => anActor.firstName.toLowerCase().includes((searchArray[i]) )||(anActor.lastName.toLowerCase().includes(searchArray[i]))));
+                
             }
-            let uniquefilteredActorsList  = [...new Set(filteredActorsList)];   // remove double
+            // set the new array to actors list
             // if the list is empty the filter will not show anything.
             this.setState({
-                actors:uniquefilteredActorsList.map(item => new Actor(item))
-             })
-             // add the filter to the previous
-             let filter=searchArray.concat(this.state.filterCreteria.split(" "));
-             let uniquefilter  = [...new Set(filter)];  // remove doubles
-             this.setState({
+                actors:filteredList.map(item => new Actor(item))
+            })
+            
+            // add the filter to the previous
+            let filter=searchArray.concat(this.state.filterCreteria.split(" "));
+            let uniquefilter  = [...new Set(filter)];  // remove doubles
+            this.setState({
                 filterCreteria:uniquefilter.join(" ")
-             })
+            })
+            
         }
     }
-   
+
+
     selectActor(actorName)
     {  
         this.props.onSelectActor(actorName);

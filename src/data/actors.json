@@ -14,6 +14,14 @@
 	  "imDBLink":"https://www.imdb.com/name/nm0000552/"
     },
 
+    {
+        "firstName": "Donna",
+        "lastName": "Murphy",
+        "birthday": "1959-03-07",
+        "imgSrc": "https://m.media-amazon.com/images/M/MV5BMzE2OTAwNzM0Ml5BMl5BanBnXkFtZTcwNzE1MDg0Mw@@._V1_.jpg",
+        "imDBLink":"https://www.imdb.com/name/nm0614220/"
+    },
+
 	{
       "firstName": "Tom",
       "lastName": "Hanks",
@@ -35,12 +43,20 @@
       "birthday": "1982-01-06",
       "imgSrc": "https://m.media-amazon.com/images/M/MV5BMTU0MjEyNzQyM15BMl5BanBnXkFtZTcwMTc4ODUxOQ@@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
 	  "imDBLink":"https://www.imdb.com/name/nm1519666/"
-    },	{
+    },	
+    {
       "firstName": "Tom",
       "lastName": "Hardy",
       "birthday": "1977-09-15",
       "imgSrc": "https://m.media-amazon.com/images/M/MV5BMTQ3ODEyNjA4Nl5BMl5BanBnXkFtZTgwMTE4ODMyMjE@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
 	  "imDBLink":"https://www.imdb.com/name/nm0362766/"
-    }
+    },
+    {
+        "firstName": "Phyllis",
+        "lastName": "Logan",
+        "birthday": "1956-01-11",
+        "imgSrc": "https://m.media-amazon.com/images/M/MV5BMTM5MTI3NzEzOF5BMl5BanBnXkFtZTcwMTIxMjI0Nw@@._V1_SY1000_CR0,0,710,1000_AL_.jpg",
+        "imDBLink":"https://www.imdb.com/name/nm0517642/"
+      }
 
 ]
