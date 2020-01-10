@@ -53,7 +53,7 @@ export default class ActorGalleryComponent extends Component {
             // copy the original array to other array
             let filteredList=actors.slice();
             // filter into the other array
-            for (var i=0;i<searchArray.length;++i)
+            for (let i=0;i<searchArray.length;++i)
             {
                 filteredList = filteredList.filter((anActor => anActor.firstName.toLowerCase().includes((searchArray[i]) )||(anActor.lastName.toLowerCase().includes(searchArray[i]))));
                 
