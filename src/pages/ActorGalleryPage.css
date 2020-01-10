@@ -1,9 +1,26 @@
 
 .actor-gallery-page{
     padding: 20px;
+    
 }
 
 .gallery-item{
     padding: 2px;
 
+}
+
+.actor-gallery-page .filter-results{
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    margin: 1rem 0.1rem 2rem 0.1rem; 
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    color: #495057;
+    background-color: #fff;
+   
+}
+
+.actor-gallery-page .filter-results>.form-control-plaintext{
+    color: rgb(108,117,125); 
+    font-size: 1.25rem;  
 }

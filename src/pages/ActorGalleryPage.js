@@ -6,7 +6,7 @@ import ActorComponent from '../components/ActorComponent'
 import ActorsData from "../data/actors.json"
 import FilterBoxComponent from '../components/FilterBoxComponent'
 
-import {Row, Col,Container,InputGroup,FormControl,Jumbotron } from 'react-bootstrap';
+import {Row, Col,Container,InputGroup,FormControl,Jumbotron,Form } from 'react-bootstrap';
 import './ActorGalleryPage.css';
 //Component ActorGalleryComponent
 // the compoment shows a gallery of actors.
@@ -102,18 +102,11 @@ export default class ActorGalleryComponent extends Component {
 
         return (
                    
-            <div class="actor-gallery-page" >
-                <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>
-                <InputGroup className="mb-3" size="lg">
-                    <FormControl
-                        placeholder="filter is according to"
-                        aria-label="filter is according to"
-                        aria-describedby="basic-addon2"
-                        value={filterCreteriaText} 
-                    />
-                    
-                </InputGroup>
-
+            <div className="actor-gallery-page" >
+                <FilterBoxComponent  onFilterChange={this.filterActors}></FilterBoxComponent>     
+                <Form.Group as={Row} className="filter-results" >
+                    <Form.Control plaintext readOnly disabled  value={filterCreteriaText}/>
+                </Form.Group>
                 <Row >             
                         {actorsItems}           
                 </Row>
