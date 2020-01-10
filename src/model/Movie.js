@@ -1,3 +1,6 @@
+
+// class movie contains the information about a movie
+
 export default class Movie{
 
     constructor(ObjectOrName,lengthMinutes,director,imgSrcPoster,starActors,id)

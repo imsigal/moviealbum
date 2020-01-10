@@ -4,6 +4,9 @@ import imageSource from '../images/movies-1167319_640.jpg'
 import './HomePage.css';
 import { Redirect } from 'react-router-dom';
 
+//Component HomePage
+// the home pages of the application
+
 export default class HomePage extends Component
   {
 

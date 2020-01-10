@@ -5,9 +5,12 @@ import './ActorComponent.css';
 import { Redirect } from 'react-router-dom';
 
 //ActorComponent
-// this component is used to show an actor . its photo and details about him
-//properties 
+// this component is used to show an actor , its photo and details about him
+// When sclicking an actor the movies page is shown .
+//properties :
 //-actor - accept actor object
+//state:
+//- IsRedirectToMoviePage - used to redirecting to the movies page
 
 export default class ActorComponent extends Component {
 

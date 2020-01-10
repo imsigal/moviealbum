@@ -6,10 +6,15 @@ import './MovieGalleryPage.css';
 
 import {Accordion ,Container} from 'react-bootstrap';
 
+
+//Component MovieGalleryPage
+// the compoment shows an accordion with galley of films.
+// the films are of the actor that was passes as propery-selectedActor
+// the films data is taken from tmdb database
 // prperties :
 // -selectedActor- the  actor, of whom the Movies will be seen
 // states:
-// movies- the list of Movie that will be seen on screen
+// movies- the list of Movie that will be seen in the accordion
 export default class MovieGalleryPage extends Component {
 
     constructor(props) {
