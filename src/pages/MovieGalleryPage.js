@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Axios from 'axios'
 import Movie from '../model/Movie'
 import MovieComponent from '../components/MovieComponent'
+import './MovieGalleryPage.css';
 
-
-import {Accordion ,Container, Jumbotron} from 'react-bootstrap';
+import {Accordion ,Container} from 'react-bootstrap';
 
 // prperties :
 // -selectedActor- the  actor, of whom the Movies will be seen
@@ -86,9 +86,9 @@ export default class MovieGalleryPage extends Component {
         var headerText=(selectedActor)? selectedActor+"'s movies": "Cannot show movies,No Actor was selected"       
         return (
               
-            <Container>
-                <Jumbotron>{headerText}</Jumbotron>
-                <Accordion>
+            <Container className="movie-gallery-page-main">
+                <h1>{headerText}</h1>
+                <Accordion defaultActiveKey={0}>
                     {moviesItems}    
                 </Accordion>
             </Container>

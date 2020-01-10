@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card,Accordion,Button, Jumbotron,Container} from 'react-bootstrap';
+import { Card,Accordion, Jumbotron,Container} from 'react-bootstrap';
 import './MovieComponent.css';
 
 //MovieComponent
@@ -18,13 +18,13 @@ export default class MovieComponent extends Component {
     {
       const { movie, index} = this.props;
         return (
-            <Card >
+            <Card className="movie-component-main" >
                 <Card.Header>
-                    <Accordion.Toggle as={Button} variant="link" eventKey={index}>
+                <Accordion.Toggle as={Card.Header} eventKey={index}>
                     {movie.name}
-                    </Accordion.Toggle>
+                </Accordion.Toggle>
                 </Card.Header>
-                    <Accordion.Collapse eventKey={index}>
+                <Accordion.Collapse eventKey={index}>
                     <Card.Body className="movie-component-container-class">
 
                          <img src={movie.imgSrcPoster} alt={movie.name} />
@@ -35,7 +35,7 @@ export default class MovieComponent extends Component {
                         </Container> 
 
                     </Card.Body>
-                    </Accordion.Collapse>
+                </Accordion.Collapse>
           </Card>
      
         );

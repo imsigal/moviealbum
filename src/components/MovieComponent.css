@@ -5,3 +5,10 @@
 .movie-component-container-class>img{
     width:30%;
 } 
+
+.movie-component-main .card-header{
+    padding:0;
+    font-size: xx-large;
+    background-color: rgb(16,147,167);
+    color: rgb(237,242,242);
+}
