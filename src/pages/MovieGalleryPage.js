@@ -24,54 +24,81 @@ export default class MovieGalleryPage extends Component {
             movies:[]
         }
        this.findMovies=this.findMovies.bind(this);
+       this.getMovieParameters=this.getMovieParameters.bind(this);
     }
 
+   
+    // find movies for each actor
     findMovies() {
    
         if (this.props.selectedActor)
         {
-         const searchURL = "https://api.themoviedb.org/3/search/person?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + this.props.selectedActor;
+            let arrMovies=[];
+            const searchURL = "https://api.themoviedb.org/3/search/person?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + this.props.selectedActor;
             Axios.get(searchURL).then(response => {
 
                 let arrDBMovies=response.data.results[0].known_for;
-                let arrMovies=[];
-                arrDBMovies.forEach(item=>arrMovies.push(new Movie(item.title,0,"",item.poster_path,"",item.id)))
-                this.setState({ 
-                    movies:arrMovies.map(item => item)  
-                })
-                // arrMovies.forEach(item=>this.getMovieParameters(item.title));
-            })
+                this.getMovieParameters(arrDBMovies);   
 
+            })
             .catch(function (error) {
                     // handle error
                     console.log(error);
             })
             .finally(function () {
-                    // always executed
+                   
             });
         }
 
      }
+     // get the crew of each moview and find director and actors
+     getMovieParameters(arrDBMovies)
+     {
+        let arrMovies=[];
+      
+        const searchURLStart="https://api.themoviedb.org/3/movie/";
+        const searchURLEnd="/credits?api_key=89f44c11b37da1d65d37b97a6bcd5217";
 
-    //  getMovieParameters(movieName)
-    //  {
+        let arr=[];
+        for (let i = 0; i < arrDBMovies.length; i++) { 
+            let searchURL=searchURLStart+arrDBMovies[i].id+searchURLEnd;
+            arr.push(Axios.get(searchURL));
+        }
+        Axios
+        .all(arr)
+        .then (Axios.spread((...responses)=>{
 
-    //     const searchURL = "https://api.themoviedb.org/3/search/movie?api_key=89f44c11b37da1d65d37b97a6bcd5217&query=" + movieName;
-    //         Axios.get(searchURL).then(response => {
+                for (let i=0;i<responses.length;i++)
+                {
+                    // get actors   
+                    let actors=[];
+                    responses[i].data.cast.forEach(actor=>actors.push(actor.name));
+                    // get the directors
+                    let directors = [];
+                    responses[i].data.crew.forEach(function(entry){
+                        if (entry.job === 'Director') {
+                            directors.push(entry.name);
+                        }
+                    })
+                    arrMovies.push(new Movie(arrDBMovies[i].title,0,directors.toString(),arrDBMovies[i].poster_path,actors.join(),arrDBMovies[i].id));
 
-    //             let arr=response.data;
-    //             console.log(arr);
-    //         })
+                }
 
-    //         .catch(function (error) {
-    //                 // handle error
-    //                 console.log(error);
-    //         })
-    //         .finally(function () {
-    //                 // always executed
-    //         });
+                this.setState({
+                    movies:arrMovies
+                })
 
-    //  }
+        })
+        )
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+
+    }
 
      
     
